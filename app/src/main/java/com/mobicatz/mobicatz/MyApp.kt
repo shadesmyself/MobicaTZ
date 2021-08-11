@@ -2,6 +2,7 @@ package com.mobicatz.mobicatz
 
 import android.app.Application
 import androidx.annotation.Keep
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -10,11 +11,15 @@ import java.util.concurrent.TimeUnit
 
 class MyApp : Application() {
 
+    private val gson = GsonBuilder()
+        .setLenient()
+        .create()
+
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .client(getOkHttp())
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
 

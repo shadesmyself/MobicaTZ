@@ -1,12 +1,11 @@
 package com.mobicatz.mobicatz.data.repository
 
-import com.mobicatz.mobicatz.data.dto.ResponseRecyclerViewData
+import com.mobicatz.mobicatz.data.dto.MobicaTzRecyclerViewData
 import com.mobicatz.mobicatz.data.remote.NetworkDatabaseDataSource
-import com.mobicatz.mobicatz.data.retrofit.MobicaApi
-import retrofit2.Call
+import retrofit2.Response
 
 class MobicaApiRepositoryImpl(private val networkDatabaseDataSource: NetworkDatabaseDataSource): MobicaApiRepository {
 
-    override suspend fun getRequest() : Call<ResponseRecyclerViewData> = networkDatabaseDataSource.getMobicaApi()
+    override suspend fun getRequest() : Response<MobicaTzRecyclerViewData> = networkDatabaseDataSource.getMobicaApi()
 
 }

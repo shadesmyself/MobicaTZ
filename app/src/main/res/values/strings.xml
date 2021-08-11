@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MobicaTZ</string>
+    <string name="sample_url">https://qaevolution.blob.core.windows.net/assets/ios/3x/Featured@4.76x.png</string>
 </resources>

@@ -1,10 +1,10 @@
 package com.mobicatz.mobicatz.data.remote
 
-import com.mobicatz.mobicatz.data.dto.ResponseRecyclerViewData
-import retrofit2.Call
+import com.mobicatz.mobicatz.data.dto.MobicaTzRecyclerViewData
+import retrofit2.Response
 
 interface NetworkDatabaseDataSource {
 
-    suspend fun getMobicaApi(): Call<ResponseRecyclerViewData>
+    suspend fun getMobicaApi(): Response<MobicaTzRecyclerViewData>
 
 }

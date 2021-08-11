@@ -3,7 +3,7 @@ package com.mobicatz.mobicatz.ui.homepage.ui
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class FragmentHomePageAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class HomePageAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         TODO("Not yet implemented")
