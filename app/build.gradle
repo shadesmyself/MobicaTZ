@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -18,11 +19,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -54,7 +51,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.7'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
 
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
@@ -71,5 +68,16 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended:1.1.0-alpha01"
     implementation "androidx.compose.material:material:1.1.0-alpha01"
     implementation "androidx.compose.foundation:foundation:1.1.0-alpha01"
-    implementation "androidx.compose.ui:ui:1.1.0-alpha01"
+    implementation "androidx.compose.ui:ui-tooling:1.0.1"
+    implementation("androidx.compose.runtime:runtime-livedata:1.0.1")
+    implementation("androidx.compose.ui:ui:1.0.1")
+
+    // Dagger 2
+    String daggerVersion = '2.33'
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    // RoomCompiler
+    implementation 'androidx.room:room-runtime:2.3.0'
+    kapt 'androidx.room:room-compiler:2.3.0'
 }

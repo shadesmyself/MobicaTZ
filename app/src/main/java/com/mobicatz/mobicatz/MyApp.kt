@@ -3,6 +3,9 @@ package com.mobicatz.mobicatz
 import android.app.Application
 import androidx.annotation.Keep
 import com.google.gson.GsonBuilder
+import com.mobicatz.mobicatz.di.components.AppComponent
+import com.mobicatz.mobicatz.di.components.DaggerAppComponent
+import com.mobicatz.mobicatz.di.module.ContextModule
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -10,7 +13,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class MyApp : Application() {
-
+    override fun onCreate() {
+        super.onCreate()
+       initializeDagger()
+    }
     private val gson = GsonBuilder()
         .setLenient()
         .create()
@@ -36,8 +42,15 @@ class MyApp : Application() {
             .build()
     }
 
+    private fun initializeDagger() {
+        appComponent = DaggerAppComponent.builder()
+            .contextModule(ContextModule(this))
+            .build()
+    }
+
     @Keep
     companion object {
-       private const val BASE_URL = "https://private-8ce77c-tmobiletest.apiary-mock.com"
+        lateinit var appComponent: AppComponent
+        private const val BASE_URL = "https://private-8ce77c-tmobiletest.apiary-mock.com"
     }
 }
