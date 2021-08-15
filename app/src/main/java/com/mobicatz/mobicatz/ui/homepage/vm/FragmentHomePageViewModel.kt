@@ -2,13 +2,13 @@ package com.mobicatz.mobicatz.ui.homepage.vm
 
 import androidx.lifecycle.MutableLiveData
 import com.mobicatz.mobicatz.base.BaseViewModel
-import com.mobicatz.mobicatz.data.dto.MobicaTzRecyclerViewData
+import com.mobicatz.mobicatz.data.dto.CardsData
 import com.mobicatz.mobicatz.domain.GetMobicaApiUseCase
 import retrofit2.Response
 
 class FragmentHomePageViewModel(private val getMobicaApiUseCase: GetMobicaApiUseCase): BaseViewModel() {
 
-    val responseRecyclerViewData = MutableLiveData<Response<MobicaTzRecyclerViewData>>()
+    val responseRecyclerViewData = MutableLiveData<Response<CardsData>>()
 
     fun initViewModel() {
         runOperation {
@@ -17,7 +17,7 @@ class FragmentHomePageViewModel(private val getMobicaApiUseCase: GetMobicaApiUse
             }
         }
     }
-    private suspend fun getData(): Response<MobicaTzRecyclerViewData> {
+    private suspend fun getData(): Response<CardsData> {
         return getMobicaApiUseCase.execute(Unit)
     }
 }

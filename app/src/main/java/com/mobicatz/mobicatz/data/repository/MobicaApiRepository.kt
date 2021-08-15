@@ -1,9 +1,8 @@
 package com.mobicatz.mobicatz.data.repository
 
-import com.mobicatz.mobicatz.data.dto.MobicaTzRecyclerViewData
-import retrofit2.Call
+import com.mobicatz.mobicatz.data.dto.CardsData
 import retrofit2.Response
 
 interface MobicaApiRepository {
-    suspend fun getRequest() : Response<MobicaTzRecyclerViewData>
+    suspend fun getCards() : Response<CardsData>
 }
